@@ -1,9 +1,6 @@
 'use strict';
 
-// Set the jasmine fixture path
-// jasmine.getFixtures().fixturesPath = 'base/';
-
-describe('', function() {
+describe('showpadHighcharts', function() {
 
     var module;
     var dependencies;
@@ -24,22 +21,22 @@ describe('', function() {
         expect(hasModule('showpadHighcharts.config')).toBeTruthy();
     });
 
-    
+
     it('should load filters module', function() {
         expect(hasModule('showpadHighcharts.filters')).toBeTruthy();
     });
-    
 
-    
+
+
     it('should load directives module', function() {
         expect(hasModule('showpadHighcharts.directives')).toBeTruthy();
     });
-    
 
-    
+
+
     it('should load services module', function() {
         expect(hasModule('showpadHighcharts.services')).toBeTruthy();
     });
-    
+
 
 });
