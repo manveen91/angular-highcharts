@@ -20,4 +20,5 @@ v0.1.0
 - Added modular directory structure for src and test files
 - Added GruntJS support for building dist files
 - Added Karma support for running unit tests
+- Added Bower support
 
