@@ -1,13 +1,13 @@
 module.exports = function (grunt) {
 
     grunt.initConfig({
-        pkg: grunt.file.readJSON('package.json'),
-        concat: {
+        pkg    : grunt.file.readJSON('package.json'),
+        concat : {
             options: {
                 separator: ''
             },
             library: {
-                src: [
+                src : [
                     'src/showpadHighcharts/showpadHighcharts.prefix',
                     'src/showpadHighcharts/showpadHighcharts.js',
                     'src/showpadHighcharts/directives/**/*.js',
@@ -18,46 +18,57 @@ module.exports = function (grunt) {
                 dest: 'dist/showpad-highcharts.js'
             }
         },
-        uglify: {
+        uglify : {
             options: {
                 banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
             },
-            jid: {
+            jid    : {
                 files: {
                     'dist/showpad-highcharts.min.js': ['<%= concat.library.dest %>']
                 }
             }
         },
-        jshint: {
+        jshint : {
             beforeConcat: {
                 src: ['gruntfile.js', 'showpadHighcharts/**/*.js']
             },
-            afterConcat: {
+            afterConcat : {
                 src: [
                     '<%= concat.library.dest %>'
                 ]
             },
-            options: {
+            options     : {
                 // options here to override JSHint defaults
-                globals: {
-                    jQuery: true,
-                    console: true,
-                    module: true,
+                globals     : {
+                    jQuery  : true,
+                    console : true,
+                    module  : true,
                     document: true,
-                    angular: true
+                    angular : true
                 },
                 globalstrict: false
             }
         },
-        watch: {
+        connect: {
+            server: {
+                options: {
+                    port      : 9000,
+                    base      : './',
+                    hostname  : 'localhost',
+                    keepalive : true,
+                    livereload: true
+                }
+            }
+        },
+        watch  : {
             options: {
                 livereload: true
             },
-            files: [
+            files  : [
                 'Gruntfile.js',
                 'src/**/*'
             ],
-            tasks: ['default']
+            tasks  : ['default']
         }
     });
 
@@ -65,8 +76,10 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-connect');
 
     grunt.registerTask('default', ['jshint:beforeConcat', 'concat', 'jshint:afterConcat', 'uglify']);
+    grunt.registerTask('serve', ['connect']);
     grunt.registerTask('livereload', ['default', 'watch']);
 
 };
