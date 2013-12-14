@@ -11,6 +11,13 @@ if (!window.Highcharts) {
 angular.module('showpadHighcharts.config', [])
     .value('showpadHighcharts.config', {
         debug: true
+    })
+    .config(function () {
+        window.Highcharts.setOptions({
+            global: {
+                useUTC: true
+            }
+        });
     });
 
 // Modules
@@ -24,4 +31,3 @@ angular.module('showpadHighcharts',
         'showpadHighcharts.filters',
         'showpadHighcharts.services'
     ]);
-
