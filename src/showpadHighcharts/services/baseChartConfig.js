@@ -1,7 +1,8 @@
 angular.module('showpadHighcharts.services')
-    .factory('BaseChartConfig', ['showpadHighcharts.config', function(config){
+    .factory('BaseChartConfig', ['showpadHighcharts.config', function (config) {
 
-        var BaseChartConfig = function BaseChartConfig(){};
+        var BaseChartConfig = function BaseChartConfig() {
+        };
 
         return BaseChartConfig;
     }]);
