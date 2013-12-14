@@ -1,3 +1,8 @@
+// Make sure the jQuery library is loaded
+if (!window.jQuery) {
+    throw new Error('Cannot load showpadHighcharts module because jQuery library is not loaded');
+}
+
 // Make sure the Highcharts library is loaded
 if (!window.Highcharts) {
     throw new Error('Cannot load showpadHighcharts module because Highcharts library is not loaded');
