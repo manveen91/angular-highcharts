@@ -1,10 +1,19 @@
 angular.module('showpadHighcharts.services')
     .factory('LineChartConfig', ['showpadHighcharts.config', 'BaseChartConfig', function (config, BaseChartConfig) {
 
-        var LineChartConfig = function LineChartConfig() {
+        var defaultConfig = {
+            chart: {
+                type: 'line'
+            }
+        };
+
+        var LineChartConfig = function LineChartConfig(config) {
 
             // Call parent constructor
             BaseChartConfig.call(this, arguments);
+
+            // Deep extend
+            jQuery.extend(true, this, defaultConfig, config);
         };
 
         // Initialize prototype as new object who's prototype is the BaseCharConfig prototype
