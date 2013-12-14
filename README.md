@@ -2,17 +2,27 @@
 
 AngularJS module for working with Highcharts
 
-How to use this library
+## How to load the module
 
-First include the library in your HTML:
+First make sure the Highcharts library is loaded:
 
-    <script src="showpad-highcharts.js" />
+    <script src="highcharts.js"></script>
 
-Then add it as a module to your AngularJS app:
+Then load `showpad-highcharts.js`:
+
+    <script src="showpad-highcharts.js"></script>
+
+Finally list the module as a dependency in your AngularJS app:
 
     angular.module('yourApp', ['showpadHighcharts']);
 
 ## Change log
+
+v0.2.0
+- Added check to make sure the Highcharts library is loaded
+- Added support for global Highcarts configuration
+- Added unit tests
+- Updated documentation
 
 v0.1.0
 
