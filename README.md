@@ -68,9 +68,27 @@ Then display the chart in your view:
 
     <div showpad-chart="chartConfig"><div>
 
-## Making a chart dynamic
+## The showpad-highcharts API
 
-To be documented
+Use the showpad-highcharts API if you need to dynamically
+update your chart after initially rendering it.
+
+To access the API, use the `ng-model` directive:
+
+    <div showpad-chart="chartConfig" ng-model="someChart"><div>
+
+The API lets you:
+
+    // Access the actual element
+    someChart.element;
+
+    // Access the underlying Highcharts API
+    someChart.chart;
+
+    // Access the configuration used to render the chart
+    someChart.config;
+
+See the API in action in the [examples](https://github.com/showpad/angular-highcharts/tree/master/examples).
 
 ## How to run the demo locally
 
