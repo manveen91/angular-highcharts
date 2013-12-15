@@ -2,24 +2,54 @@ angular.module('app', ['showpadHighcharts'])
 
     .controller('IndexCtrl', ['$scope', 'LineChartConfig', function($scope, LineChartConfig){
 
+        // Help function to create mock data
+        var createMockSeriesData = function(numberOfPoints, max){
+            var data = [];
+            for(var i = 0; i < numberOfPoints; i++){
+                data.push(Math.random() * max);
+            }
+            return data;
+        };
+
+        // Placeholder for Chart API
+        $scope.lineChart = void 0;
+
+        // Chart config
         $scope.lineChartConfig = new LineChartConfig({
             xAxis: {
                 categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
             },
             series: [{
-                data: [1,2,3,4,null,6,7,null,9],
+                data: createMockSeriesData(12, 10),
                 step: 'right',
                 name: 'Right'
             }, {
-                data: [5,6,7,8,null,10,11,null,13],
+                data: createMockSeriesData(12, 10),
                 step: 'center',
                 name: 'Center'
             }, {
-                data: [9,10,11,12,null,14,15,null,17],
+                data: createMockSeriesData(12, 10),
                 step: 'left',
                 name: 'Left'
             }]
         });
+
+        // Helper function to update chart data to simulate new data coming in
+        var timer = setInterval(function(){
+
+            // Grab chart from API provided by showpadChart
+            var chart = $scope.lineChart.chart;
+
+            if(chart){
+                console.log('update series');
+                chart.series[0].setData(createMockSeriesData(12, 10), false);
+                chart.series[1].setData(createMockSeriesData(12, 15), false);
+                chart.series[2].setData(createMockSeriesData(12, 20), false);
+
+                console.log('redraw');
+                chart.redraw();
+            }
+        }, 2000)
 
     }])
 
