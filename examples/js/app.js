@@ -16,6 +16,9 @@ angular.module('app', ['showpadHighcharts'])
 
         // Chart config
         $scope.lineChartConfig = new LineChartConfig({
+            title: {
+                text: 'Showpad Highcharts demo'
+            },
             xAxis: {
                 categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
             },
