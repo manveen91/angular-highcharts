@@ -1,4 +1,4 @@
-# angular-highcharts
+# The showpadHighcharts module
 
 AngularJS module for working with Highcharts
 
@@ -77,7 +77,9 @@ To access the API, use the `ng-model` directive:
 
     <div showpad-chart="chartConfig" ng-model="someChart"><div>
 
-The API lets you:
+This will assign the API to the `someChart` property of the current scope.
+
+The API then lets you:
 
     // Access the actual element
     someChart.element;
