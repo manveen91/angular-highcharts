@@ -15,6 +15,7 @@ module.exports = function(config) {
         // list of files / patterns to load in the browser
         files: [
             'bower/jquery/jquery.js',
+            'bower/jasmine-jquery/lib/jasmine-jquery.js',
             'lib/highcharts/js/highcharts.src.js',
             'bower/angular/angular.js',
             'bower/angular-mocks/angular-mocks.js',
