@@ -17,6 +17,7 @@
     "angular-mocks": "~1.0.8",
     "angular-scenario": "~1.0.8",
     "jquery": "~2.0.3",
-    "bootstrap": "~3.0.3"
+    "bootstrap": "~3.0.3",
+    "jasmine-jquery": "~1.5.93"
   }
 }
