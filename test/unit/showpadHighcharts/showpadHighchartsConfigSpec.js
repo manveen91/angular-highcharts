@@ -10,7 +10,7 @@ describe('showpadHighcharts.config', function () {
 
         it('should set global.useUTC correctly', function () {
             var options = Highcharts.getOptions();
-            expect(options.global.useUTC).toBe(true);
+            expect(options.global.useUTC).toBe(false);
         });
 
     })
