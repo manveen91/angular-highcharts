@@ -3,7 +3,7 @@ angular.module('showpadHighcharts.services')
 
         var defaultConfig = {
             chart: {
-                type: 'polar'
+                polar: true
             }
         };
 

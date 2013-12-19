@@ -35,9 +35,9 @@ describe('PolarChartConfig service', function () {
         });
 
 
-        it('should set the correct chart type', function () {
+        it('should set the correct chart polar value', function () {
             var config = new PolarChartConfig();
-            expect(config.chart.type).toBe('polar');
+            expect(config.chart.polar).toBe(true);
         });
 
     });
