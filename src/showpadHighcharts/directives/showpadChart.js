@@ -13,11 +13,6 @@ angular.module('showpadHighcharts.directives')
                 // to allow access to the API
                 this._chart = void 0;
 
-                // Placeholder for config for this directive
-                // This allows us to make changes to this config
-                // without affectingt the original config in the scope
-                // this._config = jQuery.extend(true, {}, $scope.$eval($attrs.showpadChart));
-
                 // Define properties we wish to expose
                 Object.defineProperties(this, {
                     element: {
