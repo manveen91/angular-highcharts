@@ -1,0 +1,29 @@
+angular.module('showpadHighcharts.services')
+    .factory('BarChartConfig', ['showpadHighcharts.config', 'BaseChartConfig', 'utils', function (config, BaseChartConfig, utils) {
+
+        var defaultConfig = {
+            chart: {
+                type: 'bar'
+            }
+        };
+
+        var BarChartConfig = function BarChartConfig(config) {
+
+            // Call parent constructor
+            BaseChartConfig.call(this, arguments);
+
+            // Deep extend
+            utils.deepExtend(this, defaultConfig, config);
+        };
+
+        // Initialize prototype as new object who's prototype is the BaseCharConfig prototype
+        BarChartConfig.prototype = new (angular.extend(
+            function () {
+            },
+            {
+                prototype: BaseChartConfig.prototype
+            }
+        ))();
+
+        return BarChartConfig;
+    }]);
