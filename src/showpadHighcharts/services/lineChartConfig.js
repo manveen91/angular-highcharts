@@ -1,5 +1,5 @@
 angular.module('showpadHighcharts.services')
-    .factory('LineChartConfig', ['showpadHighcharts.config', 'BaseChartConfig', function (config, BaseChartConfig) {
+    .factory('LineChartConfig', ['showpadHighcharts.config', 'BaseChartConfig', 'utils', function (config, BaseChartConfig, utils) {
 
         var defaultConfig = {
             chart: {
@@ -13,7 +13,7 @@ angular.module('showpadHighcharts.services')
             BaseChartConfig.call(this, arguments);
 
             // Deep extend
-            jQuery.extend(true, this, defaultConfig, config);
+            utils.deepExtend(this, defaultConfig, config);
         };
 
         // Initialize prototype as new object who's prototype is the BaseCharConfig prototype

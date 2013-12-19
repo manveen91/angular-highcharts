@@ -1,5 +1,5 @@
 angular.module('showpadHighcharts.services')
-    .factory('Utils', ['showpadHighcharts.config', function (config) {
+    .factory('utils', ['showpadHighcharts.config', function (config) {
 
         return {
 
