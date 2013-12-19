@@ -34,6 +34,12 @@ describe('LineChartConfig service', function () {
             expect(config instanceof BaseChartConfig).toBeTruthy();
         });
 
+
+        it('should set the correct chart type', function () {
+            var config = new LineChartConfig();
+            expect(config.chart.type).toBe('line');
+        });
+
     });
 
 });
