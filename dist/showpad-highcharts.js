@@ -22,7 +22,7 @@ angular.module('showpadHighcharts.config', [])
     .config(function () {
         window.Highcharts.setOptions({
             global: {
-                useUTC: true
+                useUTC: false
             }
         });
     });
