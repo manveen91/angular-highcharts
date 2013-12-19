@@ -52,11 +52,6 @@ angular.module('showpadHighcharts',
                 // to allow access to the API
                 this._chart = void 0;
 
-                // Placeholder for config for this directive
-                // This allows us to make changes to this config
-                // without affectingt the original config in the scope
-                // this._config = jQuery.extend(true, {}, $scope.$eval($attrs.showpadChart));
-
                 // Define properties we wish to expose
                 Object.defineProperties(this, {
                     element: {
@@ -125,6 +120,174 @@ angular.module('showpadHighcharts',
         };
 
     }]);angular.module('showpadHighcharts.services')
+    .factory('ColumnChartConfig', ['showpadHighcharts.config', 'BaseChartConfig', 'utils', function (config, BaseChartConfig, utils) {
+
+        var defaultConfig = {
+            chart: {
+                type: 'column'
+            }
+        };
+
+        var ColumnChartConfig = function ColumnChartConfig(config) {
+
+            // Call parent constructor
+            BaseChartConfig.call(this, arguments);
+
+            // Deep extend
+            utils.deepExtend(this, defaultConfig, config);
+        };
+
+        // Initialize prototype as new object who's prototype is the BaseCharConfig prototype
+        ColumnChartConfig.prototype = new (angular.extend(
+            function () {
+            },
+            {
+                prototype: BaseChartConfig.prototype
+            }
+        ))();
+
+        return ColumnChartConfig;
+    }]);angular.module('showpadHighcharts.services')
+    .factory('AreaChartConfig', ['showpadHighcharts.config', 'BaseChartConfig', 'utils', function (config, BaseChartConfig, utils) {
+
+        var defaultConfig = {
+            chart: {
+                type: 'area'
+            }
+        };
+
+        var AreaChartConfig = function AreaChartConfig(config) {
+
+            // Call parent constructor
+            BaseChartConfig.call(this, arguments);
+
+            // Deep extend
+            utils.deepExtend(this, defaultConfig, config);
+        };
+
+        // Initialize prototype as new object who's prototype is the BaseCharConfig prototype
+        AreaChartConfig.prototype = new (angular.extend(
+            function () {
+            },
+            {
+                prototype: BaseChartConfig.prototype
+            }
+        ))();
+
+        return AreaChartConfig;
+    }]);angular.module('showpadHighcharts.services')
+    .factory('ArearangeChartConfig', ['showpadHighcharts.config', 'BaseChartConfig', 'utils', function (config, BaseChartConfig, utils) {
+
+        var defaultConfig = {
+            chart: {
+                type: 'arearange'
+            }
+        };
+
+        var ArearangeChartConfig = function ArearangeChartConfig(config) {
+
+            // Call parent constructor
+            BaseChartConfig.call(this, arguments);
+
+            // Deep extend
+            utils.deepExtend(this, defaultConfig, config);
+        };
+
+        // Initialize prototype as new object who's prototype is the BaseCharConfig prototype
+        ArearangeChartConfig.prototype = new (angular.extend(
+            function () {
+            },
+            {
+                prototype: BaseChartConfig.prototype
+            }
+        ))();
+
+        return ArearangeChartConfig;
+    }]);angular.module('showpadHighcharts.services')
+    .factory('AreasplineChartConfig', ['showpadHighcharts.config', 'BaseChartConfig', 'utils', function (config, BaseChartConfig, utils) {
+
+        var defaultConfig = {
+            chart: {
+                type: 'areaspline'
+            }
+        };
+
+        var AreasplineChartConfig = function AreasplineChartConfig(config) {
+
+            // Call parent constructor
+            BaseChartConfig.call(this, arguments);
+
+            // Deep extend
+            utils.deepExtend(this, defaultConfig, config);
+        };
+
+        // Initialize prototype as new object who's prototype is the BaseCharConfig prototype
+        AreasplineChartConfig.prototype = new (angular.extend(
+            function () {
+            },
+            {
+                prototype: BaseChartConfig.prototype
+            }
+        ))();
+
+        return AreasplineChartConfig;
+    }]);angular.module('showpadHighcharts.services')
+    .factory('AreasplinerangeChartConfig', ['showpadHighcharts.config', 'BaseChartConfig', 'utils', function (config, BaseChartConfig, utils) {
+
+        var defaultConfig = {
+            chart: {
+                type: 'areasplinerange'
+            }
+        };
+
+        var AreasplinerangeChartConfig = function AreasplinerangeChartConfig(config) {
+
+            // Call parent constructor
+            BaseChartConfig.call(this, arguments);
+
+            // Deep extend
+            utils.deepExtend(this, defaultConfig, config);
+        };
+
+        // Initialize prototype as new object who's prototype is the BaseCharConfig prototype
+        AreasplinerangeChartConfig.prototype = new (angular.extend(
+            function () {
+            },
+            {
+                prototype: BaseChartConfig.prototype
+            }
+        ))();
+
+        return AreasplinerangeChartConfig;
+    }]);angular.module('showpadHighcharts.services')
+    .factory('BarChartConfig', ['showpadHighcharts.config', 'BaseChartConfig', 'utils', function (config, BaseChartConfig, utils) {
+
+        var defaultConfig = {
+            chart: {
+                type: 'bar'
+            }
+        };
+
+        var BarChartConfig = function BarChartConfig(config) {
+
+            // Call parent constructor
+            BaseChartConfig.call(this, arguments);
+
+            // Deep extend
+            utils.deepExtend(this, defaultConfig, config);
+        };
+
+        // Initialize prototype as new object who's prototype is the BaseCharConfig prototype
+        BarChartConfig.prototype = new (angular.extend(
+            function () {
+            },
+            {
+                prototype: BaseChartConfig.prototype
+            }
+        ))();
+
+        return BarChartConfig;
+    }]);angular.module('showpadHighcharts.services')
     .factory('BaseChartConfig', ['showpadHighcharts.config', function (config) {
 
         var BaseChartConfig = function BaseChartConfig() {
@@ -132,7 +295,63 @@ angular.module('showpadHighcharts',
 
         return BaseChartConfig;
     }]);angular.module('showpadHighcharts.services')
-    .factory('LineChartConfig', ['showpadHighcharts.config', 'BaseChartConfig', function (config, BaseChartConfig) {
+    .factory('ColumnrangeChartConfig', ['showpadHighcharts.config', 'BaseChartConfig', 'utils', function (config, BaseChartConfig, utils) {
+
+        var defaultConfig = {
+            chart: {
+                type: 'columnrange'
+            }
+        };
+
+        var ColumnrangeChartConfig = function ColumnrangeChartConfig(config) {
+
+            // Call parent constructor
+            BaseChartConfig.call(this, arguments);
+
+            // Deep extend
+            utils.deepExtend(this, defaultConfig, config);
+        };
+
+        // Initialize prototype as new object who's prototype is the BaseCharConfig prototype
+        ColumnrangeChartConfig.prototype = new (angular.extend(
+            function () {
+            },
+            {
+                prototype: BaseChartConfig.prototype
+            }
+        ))();
+
+        return ColumnrangeChartConfig;
+    }]);angular.module('showpadHighcharts.services')
+    .factory('GaugeChartConfig', ['showpadHighcharts.config', 'BaseChartConfig', 'utils', function (config, BaseChartConfig, utils) {
+
+        var defaultConfig = {
+            chart: {
+                type: 'gauge'
+            }
+        };
+
+        var GaugeChartConfig = function GaugeChartConfig(config) {
+
+            // Call parent constructor
+            BaseChartConfig.call(this, arguments);
+
+            // Deep extend
+            utils.deepExtend(this, defaultConfig, config);
+        };
+
+        // Initialize prototype as new object who's prototype is the BaseCharConfig prototype
+        GaugeChartConfig.prototype = new (angular.extend(
+            function () {
+            },
+            {
+                prototype: BaseChartConfig.prototype
+            }
+        ))();
+
+        return GaugeChartConfig;
+    }]);angular.module('showpadHighcharts.services')
+    .factory('LineChartConfig', ['showpadHighcharts.config', 'BaseChartConfig', 'utils', function (config, BaseChartConfig, utils) {
 
         var defaultConfig = {
             chart: {
@@ -146,7 +365,7 @@ angular.module('showpadHighcharts',
             BaseChartConfig.call(this, arguments);
 
             // Deep extend
-            jQuery.extend(true, this, defaultConfig, config);
+            utils.deepExtend(this, defaultConfig, config);
         };
 
         // Initialize prototype as new object who's prototype is the BaseCharConfig prototype
@@ -159,4 +378,137 @@ angular.module('showpadHighcharts',
         ))();
 
         return LineChartConfig;
+    }]);angular.module('showpadHighcharts.services')
+    .factory('PieChartConfig', ['showpadHighcharts.config', 'BaseChartConfig', 'utils', function (config, BaseChartConfig, utils) {
+
+        var defaultConfig = {
+            chart: {
+                type: 'pie'
+            }
+        };
+
+        var PieChartConfig = function PieChartConfig(config) {
+
+            // Call parent constructor
+            BaseChartConfig.call(this, arguments);
+
+            // Deep extend
+            utils.deepExtend(this, defaultConfig, config);
+        };
+
+        // Initialize prototype as new object who's prototype is the BaseCharConfig prototype
+        PieChartConfig.prototype = new (angular.extend(
+            function () {
+            },
+            {
+                prototype: BaseChartConfig.prototype
+            }
+        ))();
+
+        return PieChartConfig;
+    }]);angular.module('showpadHighcharts.services')
+    .factory('PolarChartConfig', ['showpadHighcharts.config', 'BaseChartConfig', 'utils', function (config, BaseChartConfig, utils) {
+
+        var defaultConfig = {
+            chart: {
+                polar: true
+            }
+        };
+
+        var PolarChartConfig = function PolarChartConfig(config) {
+
+            // Call parent constructor
+            BaseChartConfig.call(this, arguments);
+
+            // Deep extend
+            utils.deepExtend(this, defaultConfig, config);
+        };
+
+        // Initialize prototype as new object who's prototype is the BaseCharConfig prototype
+        PolarChartConfig.prototype = new (angular.extend(
+            function () {
+            },
+            {
+                prototype: BaseChartConfig.prototype
+            }
+        ))();
+
+        return PolarChartConfig;
+    }]);angular.module('showpadHighcharts.services')
+    .factory('ScatterChartConfig', ['showpadHighcharts.config', 'BaseChartConfig', 'utils', function (config, BaseChartConfig, utils) {
+
+        var defaultConfig = {
+            chart: {
+                type: 'scatter'
+            }
+        };
+
+        var ScatterChartConfig = function ScatterChartConfig(config) {
+
+            // Call parent constructor
+            BaseChartConfig.call(this, arguments);
+
+            // Deep extend
+            utils.deepExtend(this, defaultConfig, config);
+        };
+
+        // Initialize prototype as new object who's prototype is the BaseCharConfig prototype
+        ScatterChartConfig.prototype = new (angular.extend(
+            function () {
+            },
+            {
+                prototype: BaseChartConfig.prototype
+            }
+        ))();
+
+        return ScatterChartConfig;
+    }]);angular.module('showpadHighcharts.services')
+    .factory('SplineChartConfig', ['showpadHighcharts.config', 'BaseChartConfig', 'utils', function (config, BaseChartConfig, utils) {
+
+        var defaultConfig = {
+            chart: {
+                type: 'spline'
+            }
+        };
+
+        var SplineChartConfig = function SplineChartConfig(config) {
+
+            // Call parent constructor
+            BaseChartConfig.call(this, arguments);
+
+            // Deep extend
+            utils.deepExtend(this, defaultConfig, config);
+        };
+
+        // Initialize prototype as new object who's prototype is the BaseCharConfig prototype
+        SplineChartConfig.prototype = new (angular.extend(
+            function () {
+            },
+            {
+                prototype: BaseChartConfig.prototype
+            }
+        ))();
+
+        return SplineChartConfig;
+    }]);angular.module('showpadHighcharts.services')
+    .factory('utils', ['showpadHighcharts.config', function (config) {
+
+        return {
+
+            // Deep extend method as explained here:
+            // http://andrewdupont.net/2009/08/28/deep-extending-objects-in-javascript/
+            deepExtend: function (destination, source) {
+                for (var property in source) {
+                    if (source[property] && source[property].constructor &&
+                        source[property].constructor === Object) {
+                        destination[property] = destination[property] || {};
+                        arguments.callee(destination[property], source[property]);
+                    } else {
+                        destination[property] = source[property];
+                    }
+                }
+                return destination;
+            }
+        };
+
     }]);})(window, document);
