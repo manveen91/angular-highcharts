@@ -116,6 +116,22 @@ Open your web browser and navigate to:
 
 ## Change log
 
+v0.4.0
+
+- Removed dependency for jQuery
+- Added SplineChartConfig
+- Added AreaChartConfig
+- Added AreasplineChartConfig
+- Added ColumnChartConfig
+- Added BarChartConfig
+- Added PieChartConfig
+- Added ScatterChartConfig
+- Added PolarChartConfig
+- Added GaugeChartConfig
+- Added ArearangeChartConfig
+- Added AreasplinerangeChartConfig
+- Added ColumnRangeChartConfig
+
 v0.3.0
 
 - Added ng-model support for providing a handle to the API
