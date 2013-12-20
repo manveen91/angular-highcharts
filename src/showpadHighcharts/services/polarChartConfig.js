@@ -13,7 +13,7 @@ angular.module('showpadHighcharts.services')
             BaseChartConfig.call(this, arguments);
 
             // Deep extend
-            utils.deepExtend(this, defaultConfig, config);
+            utils.extend(true, this, defaultConfig, config);
         };
 
         // Initialize prototype as new object who's prototype is the BaseCharConfig prototype
