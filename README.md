@@ -195,6 +195,12 @@ Open your web browser and navigate to:
 
 ## Change log
 
+v0.6.0
+
+- Added example page for bar chart
+- Added example page for stacked bar chart
+- Added example page for stacked column chart
+
 v0.5.0
 
 - Added utils.extend() helper method
