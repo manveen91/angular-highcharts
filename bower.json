@@ -1,6 +1,6 @@
 {
   "name": "showpad-highcharts",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "main": [
     "dist/showpad-highcharts.js"
   ],
