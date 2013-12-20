@@ -28,7 +28,20 @@ where chartConfig is a valid chart configuration.
 ## Chart configuration
 
 Several helper services are available to help you
-create chart configurations in a quick and convenient way.
+create chart configurations in a quick and convenient way:
+
+- SplineChartConfig
+- AreaChartConfig
+- AreasplineChartConfig
+- ColumnChartConfig
+- BarChartConfig
+- PieChartConfig
+- ScatterChartConfig
+- PolarChartConfig
+- GaugeChartConfig
+- ArearangeChartConfig
+- AreasplinerangeChartConfig
+- ColumnRangeChartConfig
 
 Each helper service returns a constructor that allows
 you to create a chart configuration for a certain type of chart.
@@ -36,7 +49,7 @@ you to create a chart configuration for a certain type of chart.
 To view a list of all available properties, please
 visit the [Highcharts API documentation](http://api.highcharts.com/highcharts).
 
-### LineChartConfig
+## Line chart example
 
 First use the `LineChartConfig` service to create a line chart configuration:
 
@@ -47,19 +60,7 @@ First use the `LineChartConfig` service to create a line chart configuration:
                 title: {
                     text: 'Line chart demo'
                 }
-                series: [{
-                    name: 'Tokyo',
-                    data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
-                }, {
-                    name: 'New York',
-                    data: [-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5]
-                }, {
-                    name: 'Berlin',
-                    data: [-0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0]
-                }, {
-                    name: 'London',
-                    data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
-                }]
+                series: [] // Data should come here
             });
 
         }]);
@@ -67,6 +68,74 @@ First use the `LineChartConfig` service to create a line chart configuration:
 Then display the chart in your view:
 
     <div showpad-chart="chartConfig"><div>
+
+Check out the [line chart example page](https://github.com/showpad/angular-highcharts/tree/master/examples/line-chart).
+
+## Pie chart example
+
+First use the `PieChartConfig` service to create a line chart configuration:
+
+    angular.module('yourApp')
+        .controller('yourController', ['$scope', 'PieChartConfig', function($scope, PieChartConfig){
+
+            $scope.chartConfig = new PieChartConfig({
+                title: {
+                    text: 'Pie chart demo'
+                }
+                series: [] // Data should come here
+            });
+
+        }]);
+
+Then display the chart in your view:
+
+    <div showpad-chart="chartConfig"><div>
+
+Check out the [pie chart example page](https://github.com/showpad/angular-highcharts/tree/master/examples/pie-chart).
+
+## Area chart example
+
+First use the `AreaChartConfig` service to create a line chart configuration:
+
+    angular.module('yourApp')
+        .controller('yourController', ['$scope', 'AreaChartConfig', function($scope, AreaChartConfig){
+
+            $scope.chartConfig = new AreaChartConfig({
+                title: {
+                    text: 'Area chart demo'
+                }
+                series: [] // Data should come here
+            });
+
+        }]);
+
+Then display the chart in your view:
+
+    <div showpad-chart="chartConfig"><div>
+
+Check out the [area chart example page](https://github.com/showpad/angular-highcharts/tree/master/examples/area-chart).
+
+## Column chart example
+
+First use the `ColumnChartConfig` service to create a line chart configuration:
+
+    angular.module('yourApp')
+        .controller('yourController', ['$scope', 'ColumnChartConfig', function($scope, ColumnChartConfig){
+
+            $scope.chartConfig = new ColumnChartConfig({
+                title: {
+                    text: 'Column chart demo'
+                }
+                series: [] // Data should come here
+            });
+
+        }]);
+
+Then display the chart in your view:
+
+    <div showpad-chart="chartConfig"><div>
+
+Check out the [column chart example page](https://github.com/showpad/angular-highcharts/tree/master/examples/column-chart).
 
 ## The showpad-highcharts API
 
@@ -129,6 +198,11 @@ Open your web browser and navigate to:
 v0.5.0
 
 - Added utils.extend() helper method
+- Updated example page for line chart
+- Added example page for pie chart
+- Added example page for area chart
+- Added example page for column chart
+- Updated documentation
 
 v0.4.0
 
