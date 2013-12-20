@@ -38,7 +38,7 @@ angular.module('showpadHighcharts',
         'showpadHighcharts.filters',
         'showpadHighcharts.services'
     ]);angular.module('showpadHighcharts.directives')
-    .directive('showpadChart', ['showpadHighcharts.config', 'BaseChartConfig', function (showpadHighchartsConfig, BaseChartConfig) {
+    .directive('showpadChart', ['showpadHighcharts.config', 'BaseChartConfig', 'utils', function (showpadHighchartsConfig, BaseChartConfig, utils) {
 
         return{
             restrict  : 'A',
@@ -86,14 +86,18 @@ angular.module('showpadHighcharts',
                 var ngModelController = controllers[1];
 
                 // Get config to work with
-                // We don't use the scope.config to avoid changes to affect the original config in the scope
-                var config = scope.$eval(iAttrs.showpadChart);
+                var configFromAttrs = scope.$eval(iAttrs.showpadChart);
 
                 // Make sure config passed as argument is a valid config
-                if (!(config instanceof BaseChartConfig)) {
+                if (!(configFromAttrs instanceof BaseChartConfig)) {
                     console.log('Skipped rendering chart because config is not instance of BaseChartConfig');
                     return;
                 }
+
+                // Create config to work with
+                // We don't use the config passed as argument
+                // to avoid changing the original config
+                var config = utils.extend(true, {}, configFromAttrs);
 
                 // Create chart programmatically so we get a handle of the API
                 var element = iElement[0];
@@ -103,6 +107,7 @@ angular.module('showpadHighcharts',
                 // Assign showpadController chart
                 if(showpadChartController){
                     showpadChartController._chart = chart;
+                    showpadChartController._config = config;
                 }
 
                 // Set initial model value if a model is defined
@@ -112,7 +117,9 @@ angular.module('showpadHighcharts',
 
                 // Debugging
                 if (showpadHighchartsConfig.debug) {
-                    console.dir('Created chart with config:');
+                    console.dir('Created chart:');
+                    console.dir(chart);
+                    console.dir('with config:');
                     console.dir(config);
                 }
 
@@ -134,7 +141,7 @@ angular.module('showpadHighcharts',
             BaseChartConfig.call(this, arguments);
 
             // Deep extend
-            utils.deepExtend(this, defaultConfig, config);
+            utils.extend(true, this, defaultConfig, config);
         };
 
         // Initialize prototype as new object who's prototype is the BaseCharConfig prototype
@@ -162,7 +169,7 @@ angular.module('showpadHighcharts',
             BaseChartConfig.call(this, arguments);
 
             // Deep extend
-            utils.deepExtend(this, defaultConfig, config);
+            utils.extend(true, this, defaultConfig, config);
         };
 
         // Initialize prototype as new object who's prototype is the BaseCharConfig prototype
@@ -190,7 +197,7 @@ angular.module('showpadHighcharts',
             BaseChartConfig.call(this, arguments);
 
             // Deep extend
-            utils.deepExtend(this, defaultConfig, config);
+            utils.extend(true, this, defaultConfig, config);
         };
 
         // Initialize prototype as new object who's prototype is the BaseCharConfig prototype
@@ -218,7 +225,7 @@ angular.module('showpadHighcharts',
             BaseChartConfig.call(this, arguments);
 
             // Deep extend
-            utils.deepExtend(this, defaultConfig, config);
+            utils.extend(true, this, defaultConfig, config);
         };
 
         // Initialize prototype as new object who's prototype is the BaseCharConfig prototype
@@ -246,7 +253,7 @@ angular.module('showpadHighcharts',
             BaseChartConfig.call(this, arguments);
 
             // Deep extend
-            utils.deepExtend(this, defaultConfig, config);
+            utils.extend(true, this, defaultConfig, config);
         };
 
         // Initialize prototype as new object who's prototype is the BaseCharConfig prototype
@@ -274,7 +281,7 @@ angular.module('showpadHighcharts',
             BaseChartConfig.call(this, arguments);
 
             // Deep extend
-            utils.deepExtend(this, defaultConfig, config);
+            utils.extend(true, this, defaultConfig, config);
         };
 
         // Initialize prototype as new object who's prototype is the BaseCharConfig prototype
@@ -309,7 +316,7 @@ angular.module('showpadHighcharts',
             BaseChartConfig.call(this, arguments);
 
             // Deep extend
-            utils.deepExtend(this, defaultConfig, config);
+            utils.extend(true, this, defaultConfig, config);
         };
 
         // Initialize prototype as new object who's prototype is the BaseCharConfig prototype
@@ -337,7 +344,7 @@ angular.module('showpadHighcharts',
             BaseChartConfig.call(this, arguments);
 
             // Deep extend
-            utils.deepExtend(this, defaultConfig, config);
+            utils.extend(true, this, defaultConfig, config);
         };
 
         // Initialize prototype as new object who's prototype is the BaseCharConfig prototype
@@ -365,7 +372,7 @@ angular.module('showpadHighcharts',
             BaseChartConfig.call(this, arguments);
 
             // Deep extend
-            utils.deepExtend(this, defaultConfig, config);
+            utils.extend(true, this, defaultConfig, config);
         };
 
         // Initialize prototype as new object who's prototype is the BaseCharConfig prototype
@@ -393,7 +400,7 @@ angular.module('showpadHighcharts',
             BaseChartConfig.call(this, arguments);
 
             // Deep extend
-            utils.deepExtend(this, defaultConfig, config);
+            utils.extend(true, this, defaultConfig, config);
         };
 
         // Initialize prototype as new object who's prototype is the BaseCharConfig prototype
@@ -421,7 +428,7 @@ angular.module('showpadHighcharts',
             BaseChartConfig.call(this, arguments);
 
             // Deep extend
-            utils.deepExtend(this, defaultConfig, config);
+            utils.extend(true, this, defaultConfig, config);
         };
 
         // Initialize prototype as new object who's prototype is the BaseCharConfig prototype
@@ -449,7 +456,7 @@ angular.module('showpadHighcharts',
             BaseChartConfig.call(this, arguments);
 
             // Deep extend
-            utils.deepExtend(this, defaultConfig, config);
+            utils.extend(true, this, defaultConfig, config);
         };
 
         // Initialize prototype as new object who's prototype is the BaseCharConfig prototype
@@ -477,7 +484,7 @@ angular.module('showpadHighcharts',
             BaseChartConfig.call(this, arguments);
 
             // Deep extend
-            utils.deepExtend(this, defaultConfig, config);
+            utils.extend(true, this, defaultConfig, config);
         };
 
         // Initialize prototype as new object who's prototype is the BaseCharConfig prototype
@@ -495,20 +502,80 @@ angular.module('showpadHighcharts',
 
         return {
 
-            // Deep extend method as explained here:
-            // http://andrewdupont.net/2009/08/28/deep-extending-objects-in-javascript/
-            deepExtend: function (destination, source) {
-                for (var property in source) {
-                    if (source[property] && source[property].constructor &&
-                        source[property].constructor === Object) {
-                        destination[property] = destination[property] || {};
-                        arguments.callee(destination[property], source[property]);
-                    } else {
-                        destination[property] = source[property];
+            /**
+             * Extend method as implemented by jQuery
+             * https://github.com/jquery/jquery/blob/master/src/core.js
+             *
+             * jQuery specific code is replaced by AngularJS specific code
+             *
+             * @returns {*|{}}
+             */
+            extend   : function () {
+                var options, name, src, copy, copyIsArray, clone,
+                    target = arguments[0] || {},
+                    i = 1,
+                    length = arguments.length,
+                    deep = false;
+
+                // Handle a deep copy situation
+                if (typeof target === "boolean") {
+                    deep = target;
+
+                    // skip the boolean and the target
+                    target = arguments[ i ] || {};
+                    i++;
+                }
+
+                // Handle case when target is a string or something (possible in deep copy)
+                if (typeof target !== "object" && !angular.isFunction(target)) {
+                    target = {};
+                }
+
+                // extend jQuery itself if only one argument is passed
+                if (i === length) {
+                    target = this;
+                    i--;
+                }
+
+                for (; i < length; i++) {
+                    // Only deal with non-null/undefined values
+                    if ((options = arguments[ i ]) !== null) {
+                        // Extend the base object
+                        for (name in options) {
+                            src = target[ name ];
+                            copy = options[ name ];
+
+                            // Prevent never-ending loop
+                            if (target === copy) {
+                                continue;
+                            }
+
+                            // Recurse if we're merging plain objects or arrays
+                            // Moved isArry to front of comparison since we don't have isPlainObject method available
+                            if (deep && copy && ( (copyIsArray = angular.isArray(copy)) || angular.isObject(copy) )) {
+                                if (copyIsArray) {
+                                    copyIsArray = false;
+                                    clone = src && angular.isArray(src) ? src : [];
+
+                                } else {
+                                    clone = src && angular.isObject(src) ? src : {};
+                                }
+
+                                // Never move original objects, clone them
+                                target[ name ] = this.extend(deep, clone, copy);
+
+                                // Don't bring in undefined values
+                            } else if (copy !== undefined) {
+                                target[ name ] = copy;
+                            }
+                        }
                     }
                 }
-                return destination;
+
+                // Return the modified object
+                return target;
             }
+
         };
 
     }]);})(window, document);
