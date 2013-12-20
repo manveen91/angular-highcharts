@@ -40,7 +40,7 @@ angular.module('showpadHighcharts.services')
 
                 for (; i < length; i++) {
                     // Only deal with non-null/undefined values
-                    if ((options = arguments[ i ]) != null) {
+                    if ((options = arguments[ i ]) !== null) {
                         // Extend the base object
                         for (name in options) {
                             src = target[ name ];
@@ -52,7 +52,8 @@ angular.module('showpadHighcharts.services')
                             }
 
                             // Recurse if we're merging plain objects or arrays
-                            if (deep && copy && ( angular.isObject(copy) || (copyIsArray = angular.isArray(copy)) )) {
+                            // Moved isArry to front of comparison since we don't have isPlainObject method available
+                            if (deep && copy && ( (copyIsArray = angular.isArray(copy)) || angular.isObject(copy) )) {
                                 if (copyIsArray) {
                                     copyIsArray = false;
                                     clone = src && angular.isArray(src) ? src : [];
