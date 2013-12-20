@@ -12,10 +12,10 @@ angular.module('app', ['showpadHighcharts'])
         };
 
         // Placeholder for Chart API
-        $scope.lineChart = void 0;
+        $scope.chart = void 0;
 
         // Chart config
-        $scope.lineChartConfig = new LineChartConfig({
+        $scope.chartConfig = new LineChartConfig({
             title: {
                 text: 'Showpad Highcharts demo'
             },
@@ -41,7 +41,7 @@ angular.module('app', ['showpadHighcharts'])
         var timer = setInterval(function(){
 
             // Grab chart from API provided by showpadChart
-            var chart = $scope.lineChart.chart;
+            var chart = $scope.chart.chart;
 
             if(chart){
                 console.log('update series');
