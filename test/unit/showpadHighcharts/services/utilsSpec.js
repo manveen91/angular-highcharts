@@ -20,15 +20,69 @@ describe('utils service', function () {
         expect(typeof utils).toBe('object');
     });
 
-    describe('deepExtend method', function () {
+    describe('extend method', function () {
 
 
         it('should exist', function () {
-            expect(utils.deepExtend).toBeDefined();
+            expect(utils.extend).toBeDefined();
         });
 
         it('should be a function', function () {
-            expect(typeof utils.deepExtend).toBe('function');
+            expect(typeof utils.extend).toBe('function');
+        });
+
+        it('should merge into the first argument', function () {
+            var a = {},
+                b = {};
+
+            var extended = utils.extend(a, b);
+            expect(extended).toBe(a);
+        });
+
+        it('should handle empty objects correctly', function () {
+            var a = {},
+                b = {},
+                c = {};
+
+            var extended = utils.extend(a, b, c);
+
+            expect(extended).toEqual(b);
+        });
+
+        it('should deep extend objects correctly', function () {
+            var a = {
+                    a: {
+                        one: 'a'
+                    }
+                },
+                b = {
+                    b: {
+                        one: 'b'
+                    }
+                },
+                c = {
+                    c: {
+                        one: 'c'
+                    },
+                    b : {
+                        two: 'bb'
+                    }
+                };
+
+            var extended = utils.extend(true, a, b, c);
+
+            expect(extended).toEqual({
+                a: {
+                    one: 'a'
+                },
+                b: {
+                    one: 'b',
+                    two: 'bb'
+                },
+                c: {
+                    one: 'c'
+                }
+            });
         });
 
 
