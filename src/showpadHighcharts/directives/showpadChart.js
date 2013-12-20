@@ -1,5 +1,5 @@
 angular.module('showpadHighcharts.directives')
-    .directive('showpadChart', ['showpadHighcharts.config', 'BaseChartConfig', function (showpadHighchartsConfig, BaseChartConfig) {
+    .directive('showpadChart', ['showpadHighcharts.config', 'BaseChartConfig', 'utils', function (showpadHighchartsConfig, BaseChartConfig, utils) {
 
         return{
             restrict  : 'A',
@@ -47,14 +47,18 @@ angular.module('showpadHighcharts.directives')
                 var ngModelController = controllers[1];
 
                 // Get config to work with
-                // We don't use the scope.config to avoid changes to affect the original config in the scope
-                var config = scope.$eval(iAttrs.showpadChart);
+                var configFromAttrs = scope.$eval(iAttrs.showpadChart);
 
                 // Make sure config passed as argument is a valid config
-                if (!(config instanceof BaseChartConfig)) {
+                if (!(configFromAttrs instanceof BaseChartConfig)) {
                     console.log('Skipped rendering chart because config is not instance of BaseChartConfig');
                     return;
                 }
+
+                // Create config to work with
+                // We don't use the config passed as argument
+                // to avoid changing the original config
+                var config = utils.extend(true, {}, configFromAttrs);
 
                 // Create chart programmatically so we get a handle of the API
                 var element = iElement[0];
@@ -64,6 +68,7 @@ angular.module('showpadHighcharts.directives')
                 // Assign showpadController chart
                 if(showpadChartController){
                     showpadChartController._chart = chart;
+                    showpadChartController._config = config;
                 }
 
                 // Set initial model value if a model is defined
@@ -73,7 +78,9 @@ angular.module('showpadHighcharts.directives')
 
                 // Debugging
                 if (showpadHighchartsConfig.debug) {
-                    console.dir('Created chart with config:');
+                    console.dir('Created chart:');
+                    console.dir(chart);
+                    console.dir('with config:');
                     console.dir(config);
                 }
 
