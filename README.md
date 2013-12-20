@@ -202,6 +202,7 @@ v0.5.0
 - Added example page for pie chart
 - Added example page for area chart
 - Added example page for column chart
+- Added additional unit tests
 - Updated documentation
 
 v0.4.0
