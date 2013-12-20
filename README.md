@@ -92,6 +92,16 @@ The API then lets you:
 
 See the API in action in the [examples](https://github.com/showpad/angular-highcharts/tree/master/examples).
 
+## The utils service
+
+To prevent relying on third party libraries such as jQuery, the utils service provides a few helper methods:
+
+### utils.extend()
+
+The `utils.extend()` method is virtually a clone of [jQuery.extend()](http://api.jquery.com/jQuery.extend/).
+
+It is refactored to use AngularJS methods so it doesn't rely on jQuery.
+
 ## How to run the demo locally
 
 Clone this repository on your local machine:
@@ -115,6 +125,10 @@ Open your web browser and navigate to:
     http://localhost:9000/examples/
 
 ## Change log
+
+v0.5.0
+
+- Added utils.extend() helper method
 
 v0.4.0
 
