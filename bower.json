@@ -1,5 +1,5 @@
 {
-  "name": "showpad-highcharts",
+  "name": "showpad-angular-highcharts",
   "version": "0.5.0",
   "main": [
     "dist/showpad-highcharts.js"
