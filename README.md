@@ -21,7 +21,7 @@ Finally list the module as a dependency in your AngularJS app:
 
 To add a chart to a page, just use the following HTML:
 
-    <div showpad-chart="chartConfig"><div>
+    <div highchart="chartConfig"><div>
 
 where chartConfig is a valid chart configuration.
 
@@ -67,7 +67,7 @@ First use the `LineChartConfig` service to create a line chart configuration:
 
 Then display the chart in your view:
 
-    <div showpad-chart="chartConfig"><div>
+    <div highchart="chartConfig"><div>
 
 Check out the [line chart example page](https://github.com/showpad/angular-highcharts/tree/master/examples/line-chart).
 
@@ -89,7 +89,7 @@ First use the `PieChartConfig` service to create a line chart configuration:
 
 Then display the chart in your view:
 
-    <div showpad-chart="chartConfig"><div>
+    <div highchart="chartConfig"><div>
 
 Check out the [pie chart example page](https://github.com/showpad/angular-highcharts/tree/master/examples/pie-chart).
 
@@ -111,7 +111,7 @@ First use the `AreaChartConfig` service to create a line chart configuration:
 
 Then display the chart in your view:
 
-    <div showpad-chart="chartConfig"><div>
+    <div highchart="chartConfig"><div>
 
 Check out the [area chart example page](https://github.com/showpad/angular-highcharts/tree/master/examples/area-chart).
 
@@ -133,7 +133,7 @@ First use the `ColumnChartConfig` service to create a line chart configuration:
 
 Then display the chart in your view:
 
-    <div showpad-chart="chartConfig"><div>
+    <div highchart="chartConfig"><div>
 
 Check out the [column chart example page](https://github.com/showpad/angular-highcharts/tree/master/examples/column-chart).
 
@@ -144,7 +144,7 @@ update your chart after initially rendering it.
 
 To access the API, use the `ng-model` directive:
 
-    <div showpad-chart="chartConfig" ng-model="someChart"><div>
+    <div highchart="chartConfig" ng-model="someChart"><div>
 
 This will assign the API to the `someChart` property of the current scope.
 
@@ -194,6 +194,11 @@ Open your web browser and navigate to:
     http://localhost:9000/examples/
 
 ## Change log
+
+v0.7.0
+
+- Added support to purge memory when directive is removed
+- Updated directive and package name
 
 v0.6.0
 
