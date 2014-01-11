@@ -1,6 +1,6 @@
 'use strict';
 
-describe('showpadChart directive', function () {
+describe('highchart directive', function () {
 
     var $injector,
         $compile,
@@ -17,14 +17,14 @@ describe('showpadChart directive', function () {
     }));
 
     it('should skip rendering when no config is passed', function () {
-        var element = angular.element('<div showpad-chart></div>');
+        var element = angular.element('<div highchart></div>');
         $compile(element)(scope);
         scope.$digest();
         expect(element).toBeEmpty();
     });
 
     it('should skip rendering when an empty object literal is passed as config', function () {
-        var element = angular.element('<div showpad-chart="config"></div>');
+        var element = angular.element('<div highchart="config"></div>');
         scope.config = {};
         $compile(element)(scope);
         scope.$digest();
@@ -34,7 +34,7 @@ describe('showpadChart directive', function () {
     it('should render a line chart when a LineChartConfig instance is passed', function () {
         var LineChartConfig = $injector.get('LineChartConfig');
         scope.config = new LineChartConfig();
-        var element = angular.element('<div showpad-chart="config"></div>');
+        var element = angular.element('<div highchart="config"></div>');
         $compile(element)(scope);
         scope.$digest();
         expect(element).toContain('div.highcharts-container');
