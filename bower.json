@@ -2,7 +2,7 @@
   "name": "showpad-angular-highcharts",
   "version": "0.5.0",
   "main": [
-    "dist/showpad-highcharts.js"
+    "dist/showpad-angular-highcharts.js"
   ],
   "ignore": [
     "src",

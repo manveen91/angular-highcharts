@@ -19,7 +19,7 @@ module.exports = function(config) {
             'lib/highcharts/js/highcharts.src.js',
             'bower/angular/angular.js',
             'bower/angular-mocks/angular-mocks.js',
-            'dist/showpad-highcharts.js',
+            'dist/showpad-angular-highcharts.js',
             'test/unit/**/*.js'
         ],
 

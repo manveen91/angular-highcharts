@@ -15,7 +15,7 @@ module.exports = function (grunt) {
                     'src/showpadHighcharts/services/**/*.js',
                     'src/showpadHighcharts/showpadHighcharts.suffix'
                 ],
-                dest: 'dist/showpad-highcharts.js'
+                dest: 'dist/showpad-angular-highcharts.js'
             }
         },
         uglify : {
@@ -24,7 +24,7 @@ module.exports = function (grunt) {
             },
             jid    : {
                 files: {
-                    'dist/showpad-highcharts.min.js': ['<%= concat.library.dest %>']
+                    'dist/showpad-angular-highcharts.min.js': ['<%= concat.library.dest %>']
                 }
             }
         },

@@ -9,9 +9,9 @@ First make sure the jQuery library and the Highcharts library are loaded:
     <script src="jquery.js"></script>
     <script src="highcharts.js"></script>
 
-Then load `showpad-highcharts.js`:
+Then load `showpad-angular-highcharts.js`:
 
-    <script src="showpad-highcharts.js"></script>
+    <script src="showpad-angular-highcharts.js"></script>
 
 Finally list the module as a dependency in your AngularJS app:
 
