@@ -16,19 +16,19 @@ angular.module('showpadHighcharts.directives')
                 // Define properties we wish to expose
                 Object.defineProperties(this, {
                     element: {
-                        get: function(){
+                        get         : function () {
                             return this._element;
                         },
                         configurable: false
                     },
-                    chart: {
-                        get: function(){
+                    chart  : {
+                        get         : function () {
                             return this._chart;
                         },
                         configurable: false
                     },
-                    config: {
-                        get: function(){
+                    config : {
+                        get         : function () {
                             return this._config;
                         },
                         configurable: false
@@ -42,12 +42,20 @@ angular.module('showpadHighcharts.directives')
                 console.dir(controllers);
                 console.dir(scope);
 
+                var config,
+                    element,
+                    chart,
+                    highchartController,
+                    ngModelController,
+                    configFromAttrs;
+
+
                 // Define controller(s)
-                var highchartController = controllers[0];
-                var ngModelController = controllers[1];
+                highchartController = controllers[0];
+                ngModelController = controllers[1];
 
                 // Get config to work with
-                var configFromAttrs = scope.$eval(iAttrs.highchart);
+                configFromAttrs = scope.$eval(iAttrs.highchart);
 
                 // Make sure config passed as argument is a valid config
                 if (!(configFromAttrs instanceof BaseChartConfig)) {
@@ -58,15 +66,15 @@ angular.module('showpadHighcharts.directives')
                 // Create config to work with
                 // We don't use the config passed as argument
                 // to avoid changing the original config
-                var config = utils.extend(true, {}, configFromAttrs);
+                config = utils.extend(true, {}, configFromAttrs);
 
                 // Create chart programmatically so we get a handle of the API
-                var element = iElement[0];
+                element = iElement[0];
                 config.chart.renderTo = element;
-                var chart = new Highcharts.Chart(config);
+                chart = new Highcharts.Chart(config);
 
                 // Assign showpadController chart
-                if(highchartController){
+                if (highchartController) {
                     highchartController._chart = chart;
                     highchartController._config = config;
                 }
@@ -83,6 +91,18 @@ angular.module('showpadHighcharts.directives')
                     console.dir('with config:');
                     console.dir(config);
                 }
+
+                // Clean up chart when scope is destroyed to purge memory
+                scope.$on('$destroy', function () {
+
+                    // Destroy chart object to purge memory
+                    chart.destroy();
+
+                    if (showpadHighchartsConfig.debug) {
+                        console.log('Directive scope ' + scope.$id + ' destroyed!');
+                        console.log('Chart object removed, memory purged');
+                    }
+                });
 
             }
         };
