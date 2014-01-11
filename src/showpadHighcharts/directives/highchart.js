@@ -1,9 +1,9 @@
 angular.module('showpadHighcharts.directives')
-    .directive('showpadChart', ['showpadHighcharts.config', 'BaseChartConfig', 'utils', function (showpadHighchartsConfig, BaseChartConfig, utils) {
+    .directive('highchart', ['showpadHighcharts.config', 'BaseChartConfig', 'utils', function (showpadHighchartsConfig, BaseChartConfig, utils) {
 
         return{
             restrict  : 'A',
-            require   : ['showpadChart', '?ngModel'],
+            require   : ['highchart', '?ngModel'],
             controller: ['$scope', '$element', '$attrs', '$transclude', function ($scope, $element, $attrs, $transclude) {
 
                 // Placeholder for element
@@ -43,11 +43,11 @@ angular.module('showpadHighcharts.directives')
                 console.dir(scope);
 
                 // Define controller(s)
-                var showpadChartController = controllers[0];
+                var highchartController = controllers[0];
                 var ngModelController = controllers[1];
 
                 // Get config to work with
-                var configFromAttrs = scope.$eval(iAttrs.showpadChart);
+                var configFromAttrs = scope.$eval(iAttrs.highchart);
 
                 // Make sure config passed as argument is a valid config
                 if (!(configFromAttrs instanceof BaseChartConfig)) {
@@ -66,14 +66,14 @@ angular.module('showpadHighcharts.directives')
                 var chart = new Highcharts.Chart(config);
 
                 // Assign showpadController chart
-                if(showpadChartController){
-                    showpadChartController._chart = chart;
-                    showpadChartController._config = config;
+                if(highchartController){
+                    highchartController._chart = chart;
+                    highchartController._config = config;
                 }
 
                 // Set initial model value if a model is defined
                 if (ngModelController) {
-                    ngModelController.$setViewValue(showpadChartController);
+                    ngModelController.$setViewValue(highchartController);
                 }
 
                 // Debugging
