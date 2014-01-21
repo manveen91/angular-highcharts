@@ -195,6 +195,10 @@ Open your web browser and navigate to:
 
 ## Change log
 
+v0.7.1
+
+- Removed dependency on Object.defineProperties() for compatibility with IE8
+
 v0.7.0
 
 - Added support to purge memory when directive is removed
