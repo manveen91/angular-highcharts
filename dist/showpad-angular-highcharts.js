@@ -46,33 +46,14 @@ angular.module('showpadHighcharts',
             controller: ['$scope', '$element', '$attrs', '$transclude', function ($scope, $element, $attrs, $transclude) {
 
                 // Placeholder for element
-                this._element = $element[0];
+                this.element = $element[0];
 
                 // Placeholder for chart API returned by Highcharts
                 // to allow access to the API
-                this._chart = void 0;
+                this.chart = void 0;
 
-                // Define properties we wish to expose
-                Object.defineProperties(this, {
-                    element: {
-                        get         : function () {
-                            return this._element;
-                        },
-                        configurable: false
-                    },
-                    chart  : {
-                        get         : function () {
-                            return this._chart;
-                        },
-                        configurable: false
-                    },
-                    config : {
-                        get         : function () {
-                            return this._config;
-                        },
-                        configurable: false
-                    }
-                });
+                // Placeholder for chart config
+                this.config = void 0;
 
             }],
             link      : function (scope, iElement, iAttrs, controllers) {
@@ -114,8 +95,8 @@ angular.module('showpadHighcharts',
 
                 // Assign showpadController chart
                 if (highchartController) {
-                    highchartController._chart = chart;
-                    highchartController._config = config;
+                    highchartController.chart = chart;
+                    highchartController.config = config;
                 }
 
                 // Set initial model value if a model is defined
