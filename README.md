@@ -59,7 +59,7 @@ First use the `LineChartConfig` service to create a line chart configuration:
             $scope.chartConfig = new LineChartConfig({
                 title: {
                     text: 'Line chart demo'
-                }
+                },
                 series: [] // Data should come here
             });
 
@@ -67,7 +67,7 @@ First use the `LineChartConfig` service to create a line chart configuration:
 
 Then display the chart in your view:
 
-    <div highchart="chartConfig"><div>
+    <div highchart="chartConfig"></div>
 
 Check out the [line chart example page](https://github.com/showpad/angular-highcharts/tree/master/examples/line-chart).
 
@@ -81,7 +81,7 @@ First use the `PieChartConfig` service to create a line chart configuration:
             $scope.chartConfig = new PieChartConfig({
                 title: {
                     text: 'Pie chart demo'
-                }
+                },
                 series: [] // Data should come here
             });
 
@@ -89,7 +89,7 @@ First use the `PieChartConfig` service to create a line chart configuration:
 
 Then display the chart in your view:
 
-    <div highchart="chartConfig"><div>
+    <div highchart="chartConfig"></div>
 
 Check out the [pie chart example page](https://github.com/showpad/angular-highcharts/tree/master/examples/pie-chart).
 
@@ -103,7 +103,7 @@ First use the `AreaChartConfig` service to create a line chart configuration:
             $scope.chartConfig = new AreaChartConfig({
                 title: {
                     text: 'Area chart demo'
-                }
+                },
                 series: [] // Data should come here
             });
 
@@ -111,7 +111,7 @@ First use the `AreaChartConfig` service to create a line chart configuration:
 
 Then display the chart in your view:
 
-    <div highchart="chartConfig"><div>
+    <div highchart="chartConfig"></div>
 
 Check out the [area chart example page](https://github.com/showpad/angular-highcharts/tree/master/examples/area-chart).
 
@@ -125,7 +125,7 @@ First use the `ColumnChartConfig` service to create a line chart configuration:
             $scope.chartConfig = new ColumnChartConfig({
                 title: {
                     text: 'Column chart demo'
-                }
+                },
                 series: [] // Data should come here
             });
 
@@ -133,7 +133,7 @@ First use the `ColumnChartConfig` service to create a line chart configuration:
 
 Then display the chart in your view:
 
-    <div highchart="chartConfig"><div>
+    <div highchart="chartConfig"></div>
 
 Check out the [column chart example page](https://github.com/showpad/angular-highcharts/tree/master/examples/column-chart).
 
@@ -144,7 +144,7 @@ update your chart after initially rendering it.
 
 To access the API, use the `ng-model` directive:
 
-    <div highchart="chartConfig" ng-model="someChart"><div>
+    <div highchart="chartConfig" ng-model="someChart"></div>
 
 This will assign the API to the `someChart` property of the current scope.
 
@@ -194,6 +194,7 @@ Open your web browser and navigate to:
     http://localhost:9000/examples/
 
 ## Change log
+
 
 v0.7.1
 
